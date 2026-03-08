@@ -46,13 +46,8 @@
       transition: transform 0.1s, opacity 0.1s;
     }
     
-    button:hover {
-      opacity: 0.9;
-    }
-    
-    button:active {
-      transform: scale(0.97);
-    }
+    button:hover { opacity: 0.9; }
+    button:active { transform: scale(0.97); }
     
     button.secondary {
       background: transparent;
@@ -93,12 +88,11 @@
     }
     
     .animation-stage {
-      width: 220px;
-      height: 220px;
+      width: 240px;
+      height: 240px;
       position: relative;
     }
     
-    /* Connection lines */
     .connections {
       position: absolute;
       top: 0;
@@ -116,11 +110,11 @@
       fill: none;
     }
     
-    /* Person icons - positioned to align with lines */
+    /* Person icons */
     .person {
       position: absolute;
-      width: 32px;
-      height: 32px;
+      width: 28px;
+      height: 28px;
       opacity: 0;
       transform: scale(0.8);
     }
@@ -130,24 +124,47 @@
       height: 100%;
     }
     
-    /* Center person */
+    /* Center person - larger */
     .person.center {
-      width: 36px;
-      height: 36px;
+      width: 34px;
+      height: 34px;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%) scale(0.8);
     }
     
-    /* Outer people - positioned so their centers align with line endpoints */
-    .person.p1 { top: 18px; left: 30px; }      /* top-left */
-    .person.p2 { top: 8px; left: 94px; }       /* top */
-    .person.p3 { top: 28px; left: 158px; }     /* top-right */
-    .person.p4 { top: 94px; left: 175px; }     /* right */
-    .person.p5 { top: 160px; left: 148px; }    /* bottom-right */
-    .person.p6 { top: 160px; left: 40px; }     /* bottom-left */
-    .person.p7 { top: 94px; left: 5px; }       /* left */
-    .person.p8 { top: 28px; left: 5px; }       /* top-left-2 */
+    /* 6 outer people in hexagon pattern around center */
+    .person.p1 { top: 30px; left: 106px; }   /* top */
+    .person.p2 { top: 60px; left: 175px; }   /* top-right */
+    .person.p3 { top: 150px; left: 175px; }  /* bottom-right */
+    .person.p4 { top: 180px; left: 106px; }  /* bottom */
+    .person.p5 { top: 150px; left: 37px; }   /* bottom-left */
+    .person.p6 { top: 60px; left: 37px; }    /* top-left */
+    
+    /* Secondary connections - friends of friends (smaller) */
+    .person.secondary {
+      width: 20px;
+      height: 20px;
+    }
+    
+    /* Secondary people - 2 per outer person */
+    .person.s1a { top: 5px; left: 70px; }
+    .person.s1b { top: 5px; left: 150px; }
+    
+    .person.s2a { top: 25px; left: 205px; }
+    .person.s2b { top: 85px; left: 215px; }
+    
+    .person.s3a { top: 145px; left: 215px; }
+    .person.s3b { top: 185px; left: 205px; }
+    
+    .person.s4a { top: 210px; left: 150px; }
+    .person.s4b { top: 210px; left: 70px; }
+    
+    .person.s5a { top: 185px; left: 10px; }
+    .person.s5b { top: 145px; left: 5px; }
+    
+    .person.s6a { top: 85px; left: 5px; }
+    .person.s6b { top: 25px; left: 10px; }
     
     /* Logo */
     .logo-container {
@@ -175,7 +192,7 @@
       opacity: 0;
     }
     
-    /* Animation keyframes */
+    /* Keyframes */
     @keyframes fadeInScale {
       from { opacity: 0; transform: scale(0.7); }
       to { opacity: 1; transform: scale(1); }
@@ -195,16 +212,6 @@
       to { opacity: 0; }
     }
     
-    @keyframes convergeAndFade {
-      0% { opacity: 1; transform: scale(1); }
-      100% { opacity: 0; transform: scale(0.3) translate(0, 0); }
-    }
-    
-    @keyframes convergeCenterAndFade {
-      0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-      100% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
-    }
-    
     @keyframes logoReveal {
       from { opacity: 0; transform: translate(-50%, -50%) scale(0.6); }
       to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
@@ -215,58 +222,70 @@
       to { opacity: 1; transform: translateY(0); }
     }
     
-    /* Phase 1: appear */
-    .animating .person.center {
+    /* Phase 1: Center + primary network */
+    .phase1 .person.center {
       animation: fadeInScaleCenter 0.3s ease-out forwards;
     }
     
-    .animating .person.p1 { animation: fadeInScale 0.25s ease-out 0.4s forwards; }
-    .animating .person.p2 { animation: fadeInScale 0.25s ease-out 0.5s forwards; }
-    .animating .person.p3 { animation: fadeInScale 0.25s ease-out 0.6s forwards; }
-    .animating .person.p4 { animation: fadeInScale 0.25s ease-out 0.7s forwards; }
-    .animating .person.p5 { animation: fadeInScale 0.25s ease-out 0.8s forwards; }
-    .animating .person.p6 { animation: fadeInScale 0.25s ease-out 0.9s forwards; }
-    .animating .person.p7 { animation: fadeInScale 0.25s ease-out 1.0s forwards; }
-    .animating .person.p8 { animation: fadeInScale 0.25s ease-out 1.1s forwards; }
+    .phase1 .person.p1 { animation: fadeInScale 0.25s ease-out 0.3s forwards; }
+    .phase1 .person.p2 { animation: fadeInScale 0.25s ease-out 0.4s forwards; }
+    .phase1 .person.p3 { animation: fadeInScale 0.25s ease-out 0.5s forwards; }
+    .phase1 .person.p4 { animation: fadeInScale 0.25s ease-out 0.6s forwards; }
+    .phase1 .person.p5 { animation: fadeInScale 0.25s ease-out 0.7s forwards; }
+    .phase1 .person.p6 { animation: fadeInScale 0.25s ease-out 0.8s forwards; }
     
-    .animating .connection.c1 { animation: drawLine 0.3s ease-out 0.45s forwards; }
-    .animating .connection.c2 { animation: drawLine 0.3s ease-out 0.55s forwards; }
-    .animating .connection.c3 { animation: drawLine 0.3s ease-out 0.65s forwards; }
-    .animating .connection.c4 { animation: drawLine 0.3s ease-out 0.75s forwards; }
-    .animating .connection.c5 { animation: drawLine 0.3s ease-out 0.85s forwards; }
-    .animating .connection.c6 { animation: drawLine 0.3s ease-out 0.95s forwards; }
-    .animating .connection.c7 { animation: drawLine 0.3s ease-out 1.05s forwards; }
-    .animating .connection.c8 { animation: drawLine 0.3s ease-out 1.15s forwards; }
+    .phase1 .connection.c1 { animation: drawLine 0.3s ease-out 0.35s forwards; }
+    .phase1 .connection.c2 { animation: drawLine 0.3s ease-out 0.45s forwards; }
+    .phase1 .connection.c3 { animation: drawLine 0.3s ease-out 0.55s forwards; }
+    .phase1 .connection.c4 { animation: drawLine 0.3s ease-out 0.65s forwards; }
+    .phase1 .connection.c5 { animation: drawLine 0.3s ease-out 0.75s forwards; }
+    .phase1 .connection.c6 { animation: drawLine 0.3s ease-out 0.85s forwards; }
     
-    /* Phase 2: Converge - everything fades out */
-    .converging .person {
-      animation: convergeAndFade 0.4s ease-in forwards !important;
+    /* Phase 2: Secondary networks grow from each person */
+    .phase2 .person.s1a { animation: fadeInScale 0.2s ease-out 0.0s forwards; }
+    .phase2 .person.s1b { animation: fadeInScale 0.2s ease-out 0.05s forwards; }
+    .phase2 .person.s2a { animation: fadeInScale 0.2s ease-out 0.1s forwards; }
+    .phase2 .person.s2b { animation: fadeInScale 0.2s ease-out 0.15s forwards; }
+    .phase2 .person.s3a { animation: fadeInScale 0.2s ease-out 0.2s forwards; }
+    .phase2 .person.s3b { animation: fadeInScale 0.2s ease-out 0.25s forwards; }
+    .phase2 .person.s4a { animation: fadeInScale 0.2s ease-out 0.3s forwards; }
+    .phase2 .person.s4b { animation: fadeInScale 0.2s ease-out 0.35s forwards; }
+    .phase2 .person.s5a { animation: fadeInScale 0.2s ease-out 0.4s forwards; }
+    .phase2 .person.s5b { animation: fadeInScale 0.2s ease-out 0.45s forwards; }
+    .phase2 .person.s6a { animation: fadeInScale 0.2s ease-out 0.5s forwards; }
+    .phase2 .person.s6b { animation: fadeInScale 0.2s ease-out 0.55s forwards; }
+    
+    .phase2 .connection.s1a { animation: drawLine 0.2s ease-out 0.0s forwards; }
+    .phase2 .connection.s1b { animation: drawLine 0.2s ease-out 0.05s forwards; }
+    .phase2 .connection.s2a { animation: drawLine 0.2s ease-out 0.1s forwards; }
+    .phase2 .connection.s2b { animation: drawLine 0.2s ease-out 0.15s forwards; }
+    .phase2 .connection.s3a { animation: drawLine 0.2s ease-out 0.2s forwards; }
+    .phase2 .connection.s3b { animation: drawLine 0.2s ease-out 0.25s forwards; }
+    .phase2 .connection.s4a { animation: drawLine 0.2s ease-out 0.3s forwards; }
+    .phase2 .connection.s4b { animation: drawLine 0.2s ease-out 0.35s forwards; }
+    .phase2 .connection.s5a { animation: drawLine 0.2s ease-out 0.4s forwards; }
+    .phase2 .connection.s5b { animation: drawLine 0.2s ease-out 0.45s forwards; }
+    .phase2 .connection.s6a { animation: drawLine 0.2s ease-out 0.5s forwards; }
+    .phase2 .connection.s6b { animation: drawLine 0.2s ease-out 0.55s forwards; }
+    
+    /* Phase 3: Converge - everything fades */
+    .phase3 .person,
+    .phase3 .connection {
+      animation: fadeOut 0.4s ease-in forwards !important;
     }
     
-    .converging .person.center {
-      animation: convergeCenterAndFade 0.4s ease-in forwards !important;
-    }
-    
-    .converging .connection {
-      animation: fadeOut 0.3s ease-out forwards !important;
-    }
-    
-    /* Phase 3: Logo - people should be hidden */
-    .logo-reveal .person {
+    /* Phase 4: Logo */
+    .phase4 .person,
+    .phase4 .connection {
       opacity: 0 !important;
       visibility: hidden;
     }
     
-    .logo-reveal .connection {
-      opacity: 0 !important;
-      visibility: hidden;
-    }
-    
-    .logo-reveal .logo-container {
+    .phase4 .logo-container {
       animation: logoReveal 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
     }
     
-    .logo-reveal .tagline {
+    .phase4 .tagline {
       animation: taglineFade 0.3s ease-out 0.25s forwards;
     }
     
@@ -289,17 +308,34 @@
     <div class="splash-container">
       <div class="animation-stage" id="stage">
         
-        <!-- Connection lines - endpoints match person positions -->
-        <svg class="connections" viewBox="0 0 220 220">
-          <!-- Lines from edge of center (110,110 with ~20px radius) to edge of each person -->
-          <line class="connection c1" x1="95" y1="95" x2="50" y2="40"/>
-          <line class="connection c2" x1="110" y1="90" x2="110" y2="30"/>
-          <line class="connection c3" x1="125" y1="95" x2="175" y2="50"/>
-          <line class="connection c4" x1="130" y1="110" x2="190" y2="110"/>
-          <line class="connection c5" x1="125" y1="125" x2="170" y2="175"/>
-          <line class="connection c6" x1="95" y1="125" x2="55" y2="175"/>
-          <line class="connection c7" x1="90" y1="110" x2="30" y2="110"/>
-          <line class="connection c8" x1="95" y1="95" x2="25" y2="50"/>
+        <!-- Connection lines -->
+        <svg class="connections" viewBox="0 0 240 240">
+          <!-- Primary connections: center to outer 6 -->
+          <line class="connection c1" x1="120" y1="100" x2="120" y2="55"/>
+          <line class="connection c2" x1="135" y1="105" x2="185" y2="75"/>
+          <line class="connection c3" x1="135" y1="135" x2="185" y2="165"/>
+          <line class="connection c4" x1="120" y1="140" x2="120" y2="185"/>
+          <line class="connection c5" x1="105" y1="135" x2="55" y2="165"/>
+          <line class="connection c6" x1="105" y1="105" x2="55" y2="75"/>
+          
+          <!-- Secondary connections: outer people to their friends -->
+          <line class="connection s1a" x1="115" y1="45" x2="85" y2="18"/>
+          <line class="connection s1b" x1="125" y1="45" x2="160" y2="18"/>
+          
+          <line class="connection s2a" x1="195" y1="70" x2="218" y2="40"/>
+          <line class="connection s2b" x1="200" y1="82" x2="225" y2="98"/>
+          
+          <line class="connection s3a" x1="200" y1="162" x2="225" y2="155"/>
+          <line class="connection s3b" x1="195" y1="172" x2="218" y2="198"/>
+          
+          <line class="connection s4a" x1="125" y1="195" x2="160" y2="220"/>
+          <line class="connection s4b" x1="115" y1="195" x2="85" y2="220"/>
+          
+          <line class="connection s5a" x1="45" y1="172" x2="22" y2="198"/>
+          <line class="connection s5b" x1="42" y1="162" x2="18" y2="155"/>
+          
+          <line class="connection s6a" x1="42" y1="82" x2="18" y2="98"/>
+          <line class="connection s6b" x1="45" y1="70" x2="22" y2="40"/>
         </svg>
         
         <!-- Center person (you) -->
@@ -310,60 +346,104 @@
           </svg>
         </div>
         
-        <!-- Surrounding people - aligned with line endpoints -->
+        <!-- Primary network (6 people) -->
         <div class="person p1">
           <svg viewBox="0 0 40 40" fill="none" stroke="#FF6B6B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="20" cy="11" r="7"/>
-            <path d="M7 35 C7 25, 13 19, 20 19 C27 19, 33 25, 33 35"/>
+            <circle cx="20" cy="11" r="7"/><path d="M7 35 C7 25, 13 19, 20 19 C27 19, 33 25, 33 35"/>
           </svg>
         </div>
         <div class="person p2">
           <svg viewBox="0 0 40 40" fill="none" stroke="#FF6B6B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="20" cy="11" r="7"/>
-            <path d="M7 35 C7 25, 13 19, 20 19 C27 19, 33 25, 33 35"/>
+            <circle cx="20" cy="11" r="7"/><path d="M7 35 C7 25, 13 19, 20 19 C27 19, 33 25, 33 35"/>
           </svg>
         </div>
         <div class="person p3">
           <svg viewBox="0 0 40 40" fill="none" stroke="#FF6B6B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="20" cy="11" r="7"/>
-            <path d="M7 35 C7 25, 13 19, 20 19 C27 19, 33 25, 33 35"/>
+            <circle cx="20" cy="11" r="7"/><path d="M7 35 C7 25, 13 19, 20 19 C27 19, 33 25, 33 35"/>
           </svg>
         </div>
         <div class="person p4">
           <svg viewBox="0 0 40 40" fill="none" stroke="#FF6B6B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="20" cy="11" r="7"/>
-            <path d="M7 35 C7 25, 13 19, 20 19 C27 19, 33 25, 33 35"/>
+            <circle cx="20" cy="11" r="7"/><path d="M7 35 C7 25, 13 19, 20 19 C27 19, 33 25, 33 35"/>
           </svg>
         </div>
         <div class="person p5">
           <svg viewBox="0 0 40 40" fill="none" stroke="#FF6B6B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="20" cy="11" r="7"/>
-            <path d="M7 35 C7 25, 13 19, 20 19 C27 19, 33 25, 33 35"/>
+            <circle cx="20" cy="11" r="7"/><path d="M7 35 C7 25, 13 19, 20 19 C27 19, 33 25, 33 35"/>
           </svg>
         </div>
         <div class="person p6">
           <svg viewBox="0 0 40 40" fill="none" stroke="#FF6B6B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="20" cy="11" r="7"/>
-            <path d="M7 35 C7 25, 13 19, 20 19 C27 19, 33 25, 33 35"/>
+            <circle cx="20" cy="11" r="7"/><path d="M7 35 C7 25, 13 19, 20 19 C27 19, 33 25, 33 35"/>
           </svg>
         </div>
-        <div class="person p7">
-          <svg viewBox="0 0 40 40" fill="none" stroke="#FF6B6B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="20" cy="11" r="7"/>
-            <path d="M7 35 C7 25, 13 19, 20 19 C27 19, 33 25, 33 35"/>
+        
+        <!-- Secondary network (friends of friends - smaller, lighter) -->
+        <div class="person secondary s1a">
+          <svg viewBox="0 0 40 40" fill="none" stroke="#FF8E8E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="20" cy="11" r="7"/><path d="M7 35 C7 25, 13 19, 20 19 C27 19, 33 25, 33 35"/>
           </svg>
         </div>
-        <div class="person p8">
-          <svg viewBox="0 0 40 40" fill="none" stroke="#FF6B6B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="20" cy="11" r="7"/>
-            <path d="M7 35 C7 25, 13 19, 20 19 C27 19, 33 25, 33 35"/>
+        <div class="person secondary s1b">
+          <svg viewBox="0 0 40 40" fill="none" stroke="#FF8E8E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="20" cy="11" r="7"/><path d="M7 35 C7 25, 13 19, 20 19 C27 19, 33 25, 33 35"/>
+          </svg>
+        </div>
+        <div class="person secondary s2a">
+          <svg viewBox="0 0 40 40" fill="none" stroke="#FF8E8E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="20" cy="11" r="7"/><path d="M7 35 C7 25, 13 19, 20 19 C27 19, 33 25, 33 35"/>
+          </svg>
+        </div>
+        <div class="person secondary s2b">
+          <svg viewBox="0 0 40 40" fill="none" stroke="#FF8E8E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="20" cy="11" r="7"/><path d="M7 35 C7 25, 13 19, 20 19 C27 19, 33 25, 33 35"/>
+          </svg>
+        </div>
+        <div class="person secondary s3a">
+          <svg viewBox="0 0 40 40" fill="none" stroke="#FF8E8E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="20" cy="11" r="7"/><path d="M7 35 C7 25, 13 19, 20 19 C27 19, 33 25, 33 35"/>
+          </svg>
+        </div>
+        <div class="person secondary s3b">
+          <svg viewBox="0 0 40 40" fill="none" stroke="#FF8E8E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="20" cy="11" r="7"/><path d="M7 35 C7 25, 13 19, 20 19 C27 19, 33 25, 33 35"/>
+          </svg>
+        </div>
+        <div class="person secondary s4a">
+          <svg viewBox="0 0 40 40" fill="none" stroke="#FF8E8E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="20" cy="11" r="7"/><path d="M7 35 C7 25, 13 19, 20 19 C27 19, 33 25, 33 35"/>
+          </svg>
+        </div>
+        <div class="person secondary s4b">
+          <svg viewBox="0 0 40 40" fill="none" stroke="#FF8E8E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="20" cy="11" r="7"/><path d="M7 35 C7 25, 13 19, 20 19 C27 19, 33 25, 33 35"/>
+          </svg>
+        </div>
+        <div class="person secondary s5a">
+          <svg viewBox="0 0 40 40" fill="none" stroke="#FF8E8E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="20" cy="11" r="7"/><path d="M7 35 C7 25, 13 19, 20 19 C27 19, 33 25, 33 35"/>
+          </svg>
+        </div>
+        <div class="person secondary s5b">
+          <svg viewBox="0 0 40 40" fill="none" stroke="#FF8E8E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="20" cy="11" r="7"/><path d="M7 35 C7 25, 13 19, 20 19 C27 19, 33 25, 33 35"/>
+          </svg>
+        </div>
+        <div class="person secondary s6a">
+          <svg viewBox="0 0 40 40" fill="none" stroke="#FF8E8E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="20" cy="11" r="7"/><path d="M7 35 C7 25, 13 19, 20 19 C27 19, 33 25, 33 35"/>
+          </svg>
+        </div>
+        <div class="person secondary s6b">
+          <svg viewBox="0 0 40 40" fill="none" stroke="#FF8E8E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="20" cy="11" r="7"/><path d="M7 35 C7 25, 13 19, 20 19 C27 19, 33 25, 33 35"/>
           </svg>
         </div>
         
         <!-- Logo -->
-        <div class="logo-container" id="logoContainer">
+        <div class="logo-container">
           <div class="logo">vera</div>
-          <div class="tagline" id="tagline">Real connection, daily</div>
+          <div class="tagline">Real connections, daily</div>
         </div>
         
       </div>
@@ -386,41 +466,46 @@
       resetAnimation();
       
       timeouts.push(setTimeout(() => {
-        // Phase 1: People appear
-        status.textContent = 'Phase 1: You appear...';
-        stage.classList.add('animating');
+        // Phase 1: You + primary network
+        status.textContent = 'Phase 1: Your network forms...';
+        stage.classList.add('phase1');
         
-        // Phase 2: Converge
+        // Phase 2: Secondary networks grow
         timeouts.push(setTimeout(() => {
-          status.textContent = 'Phase 2: Connections converge...';
-          stage.classList.remove('animating');
-          stage.classList.add('converging');
+          status.textContent = 'Phase 2: Everyone makes connections...';
+          stage.classList.add('phase2');
           
-          // Phase 3: Logo reveal - after converge completes
+          // Phase 3: Converge
           timeouts.push(setTimeout(() => {
-            status.textContent = 'Phase 3: Vera emerges';
-            stage.classList.remove('converging');
-            stage.classList.add('logo-reveal');
+            status.textContent = 'Phase 3: Connections converge...';
+            stage.classList.remove('phase1', 'phase2');
+            stage.classList.add('phase3');
             
+            // Phase 4: Logo
             timeouts.push(setTimeout(() => {
-              status.textContent = '✓ Animation complete';
-            }, 600));
+              status.textContent = 'Phase 4: Vera emerges';
+              stage.classList.remove('phase3');
+              stage.classList.add('phase4');
+              
+              timeouts.push(setTimeout(() => {
+                status.textContent = '✓ Animation complete';
+              }, 600));
+              
+            }, 450));
             
-          }, 450));
+          }, 1000));
           
-        }, 1800));
+        }, 1200));
       }, 100));
     }
     
     function resetAnimation() {
       clearTimeouts();
-      stage.classList.remove('animating', 'converging', 'logo-reveal');
+      stage.classList.remove('phase1', 'phase2', 'phase3', 'phase4');
       
-      // Reset all elements
       document.querySelectorAll('.person').forEach(p => {
         p.style.opacity = '0';
         p.style.visibility = 'visible';
-        p.style.transform = '';
       });
       
       document.querySelector('.person.center').style.transform = 'translate(-50%, -50%) scale(0.8)';
@@ -430,9 +515,8 @@
         c.style.visibility = 'visible';
       });
       
-      document.getElementById('logoContainer').style.opacity = '0';
-      document.getElementById('logoContainer').style.transform = 'translate(-50%, -50%) scale(0.6)';
-      document.getElementById('tagline').style.opacity = '0';
+      document.querySelector('.logo-container').style.opacity = '0';
+      document.querySelector('.tagline').style.opacity = '0';
       
       status.textContent = 'Click play to start';
     }
