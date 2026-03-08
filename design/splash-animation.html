@@ -98,7 +98,7 @@
       position: relative;
     }
     
-    /* Connection lines */
+    /* Connection lines - adjusted to stop at edge of icons */
     .connections {
       position: absolute;
       top: 0;
@@ -111,9 +111,8 @@
     .connection {
       stroke: #FF6B6B;
       stroke-width: 1.5;
+      stroke-dasharray: 6 4;
       opacity: 0;
-      stroke-dasharray: 100;
-      stroke-dashoffset: 100;
       fill: none;
     }
     
@@ -138,23 +137,24 @@
       transform: translate(-50%, -50%) scale(0.8);
     }
     
-    .person.p1 { top: 15%; left: 25%; }
-    .person.p2 { top: 10%; left: 55%; }
-    .person.p3 { top: 25%; left: 80%; }
-    .person.p4 { top: 55%; left: 85%; }
-    .person.p5 { top: 80%; left: 65%; }
-    .person.p6 { top: 80%; left: 30%; }
-    .person.p7 { top: 55%; left: 5%; }
-    .person.p8 { top: 25%; left: 10%; }
+    .person.p1 { top: 12%; left: 22%; }
+    .person.p2 { top: 5%; left: 52%; }
+    .person.p3 { top: 20%; left: 78%; }
+    .person.p4 { top: 52%; left: 85%; }
+    .person.p5 { top: 78%; left: 68%; }
+    .person.p6 { top: 78%; left: 28%; }
+    .person.p7 { top: 52%; left: 2%; }
+    .person.p8 { top: 20%; left: 8%; }
     
     /* Logo */
     .logo-container {
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%) scale(0.6);
       text-align: center;
       opacity: 0;
+      pointer-events: none;
     }
     
     .logo {
@@ -196,22 +196,38 @@
     
     @keyframes drawLine {
       from {
-        stroke-dashoffset: 100;
-        opacity: 0.4;
+        stroke-dashoffset: 60;
+        opacity: 0;
       }
       to {
         stroke-dashoffset: 0;
-        opacity: 0.4;
+        opacity: 0.5;
       }
     }
     
-    @keyframes convergeToCenter {
-      to {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(0);
-        opacity: 0;
-      }
+    @keyframes convergeP1 {
+      to { top: 42%; left: 38%; opacity: 0; transform: scale(0.3); }
+    }
+    @keyframes convergeP2 {
+      to { top: 38%; left: 50%; opacity: 0; transform: scale(0.3); }
+    }
+    @keyframes convergeP3 {
+      to { top: 42%; left: 62%; opacity: 0; transform: scale(0.3); }
+    }
+    @keyframes convergeP4 {
+      to { top: 50%; left: 65%; opacity: 0; transform: scale(0.3); }
+    }
+    @keyframes convergeP5 {
+      to { top: 58%; left: 58%; opacity: 0; transform: scale(0.3); }
+    }
+    @keyframes convergeP6 {
+      to { top: 58%; left: 42%; opacity: 0; transform: scale(0.3); }
+    }
+    @keyframes convergeP7 {
+      to { top: 50%; left: 35%; opacity: 0; transform: scale(0.3); }
+    }
+    @keyframes convergeP8 {
+      to { top: 42%; left: 38%; opacity: 0; transform: scale(0.3); }
     }
     
     @keyframes convergeCenterPerson {
@@ -243,35 +259,19 @@
       to { opacity: 1; transform: translateY(0); }
     }
     
-    /* Animation states */
+    /* Animation states - Phase 1: appear */
     .animating .person.center {
       animation: fadeInScaleCenter 0.3s ease-out forwards;
     }
     
-    .animating .person.p1 {
-      animation: fadeInScale 0.25s ease-out 0.4s forwards;
-    }
-    .animating .person.p2 {
-      animation: fadeInScale 0.25s ease-out 0.55s forwards;
-    }
-    .animating .person.p3 {
-      animation: fadeInScale 0.25s ease-out 0.7s forwards;
-    }
-    .animating .person.p4 {
-      animation: fadeInScale 0.25s ease-out 0.85s forwards;
-    }
-    .animating .person.p5 {
-      animation: fadeInScale 0.25s ease-out 1.0s forwards;
-    }
-    .animating .person.p6 {
-      animation: fadeInScale 0.25s ease-out 1.15s forwards;
-    }
-    .animating .person.p7 {
-      animation: fadeInScale 0.25s ease-out 1.3s forwards;
-    }
-    .animating .person.p8 {
-      animation: fadeInScale 0.25s ease-out 1.45s forwards;
-    }
+    .animating .person.p1 { animation: fadeInScale 0.25s ease-out 0.4s forwards; }
+    .animating .person.p2 { animation: fadeInScale 0.25s ease-out 0.55s forwards; }
+    .animating .person.p3 { animation: fadeInScale 0.25s ease-out 0.7s forwards; }
+    .animating .person.p4 { animation: fadeInScale 0.25s ease-out 0.85s forwards; }
+    .animating .person.p5 { animation: fadeInScale 0.25s ease-out 1.0s forwards; }
+    .animating .person.p6 { animation: fadeInScale 0.25s ease-out 1.15s forwards; }
+    .animating .person.p7 { animation: fadeInScale 0.25s ease-out 1.3s forwards; }
+    .animating .person.p8 { animation: fadeInScale 0.25s ease-out 1.45s forwards; }
     
     .animating .connection.c1 { animation: drawLine 0.3s ease-out 0.5s forwards; }
     .animating .connection.c2 { animation: drawLine 0.3s ease-out 0.65s forwards; }
@@ -282,35 +282,32 @@
     .animating .connection.c7 { animation: drawLine 0.3s ease-out 1.4s forwards; }
     .animating .connection.c8 { animation: drawLine 0.3s ease-out 1.55s forwards; }
     
-    /* Converge phase */
-    .converging .person.p1,
-    .converging .person.p2,
-    .converging .person.p3,
-    .converging .person.p4,
-    .converging .person.p5,
-    .converging .person.p6,
-    .converging .person.p7,
-    .converging .person.p8 {
-      animation: convergeToCenter 0.5s ease-in-out forwards !important;
-      opacity: 1;
-    }
+    /* Phase 2: Converge */
+    .converging .person.p1 { animation: convergeP1 0.5s ease-in-out forwards; opacity: 1; }
+    .converging .person.p2 { animation: convergeP2 0.5s ease-in-out forwards; opacity: 1; }
+    .converging .person.p3 { animation: convergeP3 0.5s ease-in-out forwards; opacity: 1; }
+    .converging .person.p4 { animation: convergeP4 0.5s ease-in-out forwards; opacity: 1; }
+    .converging .person.p5 { animation: convergeP5 0.5s ease-in-out forwards; opacity: 1; }
+    .converging .person.p6 { animation: convergeP6 0.5s ease-in-out forwards; opacity: 1; }
+    .converging .person.p7 { animation: convergeP7 0.5s ease-in-out forwards; opacity: 1; }
+    .converging .person.p8 { animation: convergeP8 0.5s ease-in-out forwards; opacity: 1; }
     
     .converging .person.center {
-      animation: convergeCenterPerson 0.5s ease-in-out forwards !important;
+      animation: convergeCenterPerson 0.5s ease-in-out forwards;
       opacity: 1;
     }
     
     .converging .connection {
-      animation: fadeOutLines 0.4s ease-out forwards !important;
+      animation: fadeOutLines 0.3s ease-out forwards;
     }
     
-    /* Logo phase */
+    /* Phase 3: Logo */
     .logo-reveal .logo-container {
       animation: logoReveal 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
     }
     
     .logo-reveal .tagline {
-      animation: taglineFade 0.3s ease-out 0.3s forwards;
+      animation: taglineFade 0.3s ease-out 0.25s forwards;
     }
     
     .status {
@@ -332,16 +329,17 @@
     <div class="splash-container">
       <div class="animation-stage" id="stage">
         
-        <!-- Connection lines SVG -->
+        <!-- Connection lines SVG - lines stop at edge of center icon (radius ~25px from center) -->
         <svg class="connections" viewBox="0 0 220 220">
-          <line class="connection c1" x1="110" y1="110" x2="63" y2="42"/>
-          <line class="connection c2" x1="110" y1="110" x2="135" y2="32"/>
-          <line class="connection c3" x1="110" y1="110" x2="188" y2="65"/>
-          <line class="connection c4" x1="110" y1="110" x2="195" y2="130"/>
-          <line class="connection c5" x1="110" y1="110" x2="155" y2="185"/>
-          <line class="connection c6" x1="110" y1="110" x2="75" y2="185"/>
-          <line class="connection c7" x1="110" y1="110" x2="22" y2="130"/>
-          <line class="connection c8" x1="110" y1="110" x2="32" y2="65"/>
+          <!-- Lines from outer people to edge of center person (not all the way in) -->
+          <line class="connection c1" x1="88" y1="92" x2="55" y2="38"/>
+          <line class="connection c2" x1="110" y1="88" x2="125" y2="28"/>
+          <line class="connection c3" x1="132" y1="92" x2="182" y2="55"/>
+          <line class="connection c4" x1="135" y1="110" x2="195" y2="125"/>
+          <line class="connection c5" x1="128" y1="132" x2="165" y2="185"/>
+          <line class="connection c6" x1="92" y1="132" x2="62" y2="185"/>
+          <line class="connection c7" x1="85" y1="110" x2="22" y2="125"/>
+          <line class="connection c8" x1="88" y1="92" x2="35" y2="55"/>
         </svg>
         
         <!-- Center person (you) -->
@@ -403,9 +401,9 @@
         </div>
         
         <!-- Logo (hidden initially) -->
-        <div class="logo-container">
+        <div class="logo-container" id="logoContainer">
           <div class="logo">vera</div>
-          <div class="tagline">Real connection, daily</div>
+          <div class="tagline" id="tagline">Real connection, daily</div>
         </div>
         
       </div>
@@ -417,67 +415,87 @@
   <script>
     const stage = document.getElementById('stage');
     const status = document.getElementById('status');
-    let animationTimeout = null;
+    const logoContainer = document.getElementById('logoContainer');
+    const tagline = document.getElementById('tagline');
+    let timeouts = [];
+    
+    function clearTimeouts() {
+      timeouts.forEach(t => clearTimeout(t));
+      timeouts = [];
+    }
     
     function playAnimation() {
       resetAnimation();
       
-      // Phase 1: People appear with connections
-      status.textContent = 'Phase 1: You appear...';
-      stage.classList.add('animating');
-      
-      // Phase 2: Converge (after people appear)
-      animationTimeout = setTimeout(() => {
-        status.textContent = 'Phase 2: Connections converge...';
-        stage.classList.remove('animating');
-        stage.classList.add('converging');
+      // Small delay before starting
+      timeouts.push(setTimeout(() => {
+        // Phase 1: People appear with connections
+        status.textContent = 'Phase 1: You appear...';
+        stage.classList.add('animating');
         
-        // Phase 3: Logo reveal
-        setTimeout(() => {
-          status.textContent = 'Phase 3: Vera emerges';
-          stage.classList.remove('converging');
-          stage.classList.add('logo-reveal');
+        // Phase 2: Converge (after people appear)
+        timeouts.push(setTimeout(() => {
+          status.textContent = 'Phase 2: Connections converge...';
+          stage.classList.remove('animating');
           
-          setTimeout(() => {
-            status.textContent = '✓ Animation complete';
-          }, 600);
+          // Set opacity to 1 for all people before converge
+          document.querySelectorAll('.person').forEach(p => {
+            p.style.opacity = '1';
+          });
+          document.querySelectorAll('.connection').forEach(c => {
+            c.style.opacity = '0.5';
+          });
           
-        }, 550);
-        
-      }, 2000);
+          stage.classList.add('converging');
+          
+          // Phase 3: Logo reveal
+          timeouts.push(setTimeout(() => {
+            status.textContent = 'Phase 3: Vera emerges';
+            stage.classList.remove('converging');
+            stage.classList.add('logo-reveal');
+            
+            timeouts.push(setTimeout(() => {
+              status.textContent = '✓ Animation complete';
+            }, 600));
+            
+          }, 550));
+          
+        }, 2000));
+      }, 100));
     }
     
     function resetAnimation() {
-      if (animationTimeout) {
-        clearTimeout(animationTimeout);
-      }
+      clearTimeouts();
       stage.classList.remove('animating', 'converging', 'logo-reveal');
       
-      // Reset all elements
+      // Reset all people
       document.querySelectorAll('.person').forEach(p => {
-        p.style.animation = 'none';
-        p.offsetHeight; // Trigger reflow
-        p.style.animation = '';
         p.style.opacity = '0';
         p.style.transform = '';
         p.style.top = '';
         p.style.left = '';
       });
       
+      // Reset center person specifically
+      const center = document.querySelector('.person.center');
+      center.style.transform = 'translate(-50%, -50%) scale(0.8)';
+      
+      // Reset connections
       document.querySelectorAll('.connection').forEach(c => {
-        c.style.animation = 'none';
-        c.offsetHeight;
-        c.style.animation = '';
         c.style.opacity = '0';
+        c.style.strokeDashoffset = '60';
       });
       
-      document.querySelector('.logo-container').style.animation = 'none';
-      document.querySelector('.logo-container').style.opacity = '0';
-      document.querySelector('.tagline').style.animation = 'none';
-      document.querySelector('.tagline').style.opacity = '0';
+      // Reset logo
+      logoContainer.style.opacity = '0';
+      logoContainer.style.transform = 'translate(-50%, -50%) scale(0.6)';
+      tagline.style.opacity = '0';
       
       status.textContent = 'Click play to start';
     }
+    
+    // Initialize
+    resetAnimation();
   </script>
 </body>
 </html>
