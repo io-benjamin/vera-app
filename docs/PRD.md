@@ -4,7 +4,7 @@
 
 **Vera** is a daily connection app that gives you one simple task: do something real with another human. In a world of AI and isolation, Vera brings people back together—one task at a time.
 
-**Tagline:** Real connection, daily.
+**Tagline:** Real connections, daily.
 
 **Name origin:** From Spanish "verdad" (truth) — authentic human connection.
 
@@ -40,7 +40,7 @@ A dead-simple app:
 ┌─────────────────────────────────────────┐
 │           MORNING NOTIFICATION          │
 │   "Today's task: Have coffee with       │
-│    someone you haven't seen lately ☕"   │
+│    someone you've never met ☕"   │
 └─────────────────────────┬───────────────┘
                           │
                           ▼
@@ -113,7 +113,7 @@ A dead-simple app:
 ## Screens (MVP)
 
 ### 1. Onboarding
-- Splash: "Vera — Real connection, daily"
+- Splash: "Vera — Real connections, daily"
 - Sign up (email or Apple)
 - Notification permission (important!)
 - Brief explanation (3 slides max)
