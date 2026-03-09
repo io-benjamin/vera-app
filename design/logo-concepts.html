@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vera — Logo Concepts</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Rounded', sans-serif;
+      background: #1a1a1a;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    
+    h1 {
+      color: white;
+      text-align: center;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    
+    .subtitle {
+      color: #888;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .concepts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .concept {
+      background: #2a2a2a;
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+    }
+    
+    .concept-label {
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    
+    .concept-desc {
+      color: #888;
+      font-size: 13px;
+      margin-bottom: 24px;
+    }
+    
+    .logo-preview {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .app-icon {
+      width: 120px;
+      height: 120px;
+      border-radius: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    }
+    
+    .app-icon.small {
+      width: 60px;
+      height: 60px;
+      border-radius: 14px;
+    }
+    
+    .app-icon svg {
+      width: 60%;
+      height: 60%;
+    }
+    
+    /* Color variations */
+    .bg-coral { background: #FF6B6B; }
+    .bg-cream { background: #FFF8F0; }
+    .bg-forest { background: #2D5A4A; }
+    .bg-charcoal { background: #2C2C2C; }
+    .bg-gradient-warm { background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%); }
+    .bg-gradient-sunset { background: linear-gradient(135deg, #FF6B6B 0%, #FFB88C 100%); }
+    
+    .sizes {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #3a3a3a;
+    }
+    
+    .sizes-label {
+      color: #666;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+    
+    .size-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+    
+    .size-item {
+      text-align: center;
+    }
+    
+    .size-item span {
+      display: block;
+      color: #666;
+      font-size: 10px;
+      margin-top: 6px;
+    }
+    
+    .icon-16 { width: 16px; height: 16px; border-radius: 3px; }
+    .icon-32 { width: 32px; height: 32px; border-radius: 7px; }
+    .icon-64 { width: 64px; height: 64px; border-radius: 14px; }
+    .icon-128 { width: 128px; height: 128px; border-radius: 28px; }
+    
+    .section-title {
+      color: white;
+      font-size: 20px;
+      text-align: center;
+      margin: 50px 0 30px;
+      font-weight: 600;
+    }
+    
+    .wordmark-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+    
+    .wordmark {
+      font-size: 48px;
+      font-weight: 700;
+      letter-spacing: -2px;
+    }
+    
+    .wordmark.coral { color: #FF6B6B; }
+    .wordmark.cream { color: #FFF8F0; }
+    .wordmark.forest { color: #2D5A4A; }
+    .wordmark.charcoal { color: #2C2C2C; }
+  </style>
+</head>
+<body>
+  <h1>Vera — Logo Concepts</h1>
+  <p class="subtitle">App icon options using geometric connection style</p>
+  
+  <div class="concepts">
+    
+    <!-- Concept 1: Single connected person -->
+    <div class="concept">
+      <div class="concept-label">Option A: Connected You</div>
+      <div class="concept-desc">Single person with connection dots radiating out</div>
+      <div class="logo-preview">
+        <div class="app-icon bg-coral">
+          <svg viewBox="0 0 100 100" fill="none">
+            <!-- Center person -->
+            <circle cx="50" cy="38" r="12" stroke="white" stroke-width="4" fill="none"/>
+            <path d="M28 78 C28 60, 38 52, 50 52 C62 52, 72 60, 72 78" stroke="white" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <!-- Connection dots -->
+            <circle cx="20" cy="25" r="5" fill="white" opacity="0.6"/>
+            <circle cx="80" cy="25" r="5" fill="white" opacity="0.6"/>
+            <circle cx="15" cy="55" r="4" fill="white" opacity="0.4"/>
+            <circle cx="85" cy="55" r="4" fill="white" opacity="0.4"/>
+          </svg>
+        </div>
+        <div class="app-icon bg-cream">
+          <svg viewBox="0 0 100 100" fill="none">
+            <circle cx="50" cy="38" r="12" stroke="#FF6B6B" stroke-width="4" fill="none"/>
+            <path d="M28 78 C28 60, 38 52, 50 52 C62 52, 72 60, 72 78" stroke="#FF6B6B" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <circle cx="20" cy="25" r="5" fill="#FF6B6B" opacity="0.6"/>
+            <circle cx="80" cy="25" r="5" fill="#FF6B6B" opacity="0.6"/>
+            <circle cx="15" cy="55" r="4" fill="#FF6B6B" opacity="0.4"/>
+            <circle cx="85" cy="55" r="4" fill="#FF6B6B" opacity="0.4"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Concept 2: Two people connected -->
+    <div class="concept">
+      <div class="concept-label">Option B: The Connection</div>
+      <div class="concept-desc">Two people with a line between them</div>
+      <div class="logo-preview">
+        <div class="app-icon bg-coral">
+          <svg viewBox="0 0 100 100" fill="none">
+            <!-- Left person -->
+            <circle cx="30" cy="35" r="10" stroke="white" stroke-width="3.5" fill="none"/>
+            <path d="M15 65 C15 52, 22 46, 30 46 C38 46, 45 52, 45 65" stroke="white" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+            <!-- Right person -->
+            <circle cx="70" cy="35" r="10" stroke="white" stroke-width="3.5" fill="none"/>
+            <path d="M55 65 C55 52, 62 46, 70 46 C78 46, 85 52, 85 65" stroke="white" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+            <!-- Connection line -->
+            <line x1="42" y1="50" x2="58" y2="50" stroke="white" stroke-width="3" stroke-dasharray="6 4" opacity="0.8"/>
+          </svg>
+        </div>
+        <div class="app-icon bg-forest">
+          <svg viewBox="0 0 100 100" fill="none">
+            <circle cx="30" cy="35" r="10" stroke="white" stroke-width="3.5" fill="none"/>
+            <path d="M15 65 C15 52, 22 46, 30 46 C38 46, 45 52, 45 65" stroke="white" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+            <circle cx="70" cy="35" r="10" stroke="white" stroke-width="3.5" fill="none"/>
+            <path d="M55 65 C55 52, 62 46, 70 46 C78 46, 85 52, 85 65" stroke="white" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+            <line x1="42" y1="50" x2="58" y2="50" stroke="white" stroke-width="3" stroke-dasharray="6 4" opacity="0.8"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Concept 3: Network circle -->
+    <div class="concept">
+      <div class="concept-label">Option C: The Circle</div>
+      <div class="concept-desc">People arranged in a connected circle</div>
+      <div class="logo-preview">
+        <div class="app-icon bg-gradient-warm">
+          <svg viewBox="0 0 100 100" fill="none">
+            <!-- Circle of connection -->
+            <circle cx="50" cy="50" r="30" stroke="white" stroke-width="2" fill="none" opacity="0.3"/>
+            <!-- Top person -->
+            <circle cx="50" cy="20" r="7" stroke="white" stroke-width="2.5" fill="none"/>
+            <path d="M42 38 C42 30, 46 27, 50 27 C54 27, 58 30, 58 38" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <!-- Bottom left -->
+            <circle cx="25" cy="70" r="7" stroke="white" stroke-width="2.5" fill="none"/>
+            <path d="M17 88 C17 80, 21 77, 25 77 C29 77, 33 80, 33 88" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <!-- Bottom right -->
+            <circle cx="75" cy="70" r="7" stroke="white" stroke-width="2.5" fill="none"/>
+            <path d="M67 88 C67 80, 71 77, 75 77 C79 77, 83 80, 83 88" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="app-icon bg-charcoal">
+          <svg viewBox="0 0 100 100" fill="none">
+            <circle cx="50" cy="50" r="30" stroke="#FF6B6B" stroke-width="2" fill="none" opacity="0.3"/>
+            <circle cx="50" cy="20" r="7" stroke="#FF6B6B" stroke-width="2.5" fill="none"/>
+            <path d="M42 38 C42 30, 46 27, 50 27 C54 27, 58 30, 58 38" stroke="#FF6B6B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <circle cx="25" cy="70" r="7" stroke="#FF6B6B" stroke-width="2.5" fill="none"/>
+            <path d="M17 88 C17 80, 21 77, 25 77 C29 77, 33 80, 33 88" stroke="#FF6B6B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <circle cx="75" cy="70" r="7" stroke="#FF6B6B" stroke-width="2.5" fill="none"/>
+            <path d="M67 88 C67 80, 71 77, 75 77 C79 77, 83 80, 83 88" stroke="#FF6B6B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Concept 4: Abstract V -->
+    <div class="concept">
+      <div class="concept-label">Option D: Abstract V</div>
+      <div class="concept-desc">Stylized V made of connected nodes</div>
+      <div class="logo-preview">
+        <div class="app-icon bg-coral">
+          <svg viewBox="0 0 100 100" fill="none">
+            <!-- V shape with nodes -->
+            <circle cx="25" cy="30" r="8" stroke="white" stroke-width="3" fill="none"/>
+            <circle cx="75" cy="30" r="8" stroke="white" stroke-width="3" fill="none"/>
+            <circle cx="50" cy="75" r="10" stroke="white" stroke-width="3" fill="none"/>
+            <!-- Connecting lines -->
+            <line x1="30" y1="38" x2="45" y2="65" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="70" y1="38" x2="55" y2="65" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="app-icon bg-cream">
+          <svg viewBox="0 0 100 100" fill="none">
+            <circle cx="25" cy="30" r="8" stroke="#FF6B6B" stroke-width="3" fill="none"/>
+            <circle cx="75" cy="30" r="8" stroke="#FF6B6B" stroke-width="3" fill="none"/>
+            <circle cx="50" cy="75" r="10" stroke="#FF6B6B" stroke-width="3" fill="none"/>
+            <line x1="30" y1="38" x2="45" y2="65" stroke="#FF6B6B" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="70" y1="38" x2="55" y2="65" stroke="#FF6B6B" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Concept 5: Heart connection -->
+    <div class="concept">
+      <div class="concept-label">Option E: Heart Network</div>
+      <div class="concept-desc">Heart shape made of connection points</div>
+      <div class="logo-preview">
+        <div class="app-icon bg-gradient-sunset">
+          <svg viewBox="0 0 100 100" fill="none">
+            <!-- Heart outline with dots -->
+            <path d="M50 85 C20 60, 10 40, 25 25 C35 15, 50 20, 50 35 C50 20, 65 15, 75 25 C90 40, 80 60, 50 85Z" 
+                  stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Connection dots on heart -->
+            <circle cx="28" cy="35" r="5" fill="white"/>
+            <circle cx="72" cy="35" r="5" fill="white"/>
+            <circle cx="50" cy="70" r="5" fill="white"/>
+            <circle cx="35" cy="55" r="4" fill="white" opacity="0.7"/>
+            <circle cx="65" cy="55" r="4" fill="white" opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="app-icon bg-coral">
+          <svg viewBox="0 0 100 100" fill="none">
+            <path d="M50 85 C20 60, 10 40, 25 25 C35 15, 50 20, 50 35 C50 20, 65 15, 75 25 C90 40, 80 60, 50 85Z" 
+                  stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="28" cy="35" r="5" fill="white"/>
+            <circle cx="72" cy="35" r="5" fill="white"/>
+            <circle cx="50" cy="70" r="5" fill="white"/>
+            <circle cx="35" cy="55" r="4" fill="white" opacity="0.7"/>
+            <circle cx="65" cy="55" r="4" fill="white" opacity="0.7"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Concept 6: Simple wordmark -->
+    <div class="concept">
+      <div class="concept-label">Option F: Wordmark Only</div>
+      <div class="concept-desc">Clean "v" letterform as icon</div>
+      <div class="logo-preview">
+        <div class="app-icon bg-coral">
+          <svg viewBox="0 0 100 100" fill="none">
+            <text x="50" y="72" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, sans-serif" 
+                  font-size="65" font-weight="700" fill="white">v</text>
+          </svg>
+        </div>
+        <div class="app-icon bg-forest">
+          <svg viewBox="0 0 100 100" fill="none">
+            <text x="50" y="72" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, sans-serif" 
+                  font-size="65" font-weight="700" fill="white">v</text>
+          </svg>
+        </div>
+        <div class="app-icon bg-cream">
+          <svg viewBox="0 0 100 100" fill="none">
+            <text x="50" y="72" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, sans-serif" 
+                  font-size="65" font-weight="700" fill="#FF6B6B">v</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  
+  <!-- Wordmarks -->
+  <h2 class="section-title">Wordmark Options</h2>
+  <div class="wordmark-row">
+    <span class="wordmark coral">vera</span>
+    <span class="wordmark cream">vera</span>
+    <span class="wordmark forest">vera</span>
+  </div>
+  
+  <!-- Size reference -->
+  <div class="concept" style="max-width: 500px; margin: 30px auto;">
+    <div class="concept-label">Size Reference</div>
+    <div class="concept-desc">How icons look at different sizes</div>
+    <div class="size-row">
+      <div class="size-item">
+        <div class="app-icon icon-16 bg-coral" style="display:inline-flex;">
+          <svg viewBox="0 0 100 100" fill="none">
+            <circle cx="50" cy="38" r="12" stroke="white" stroke-width="6" fill="none"/>
+            <path d="M28 78 C28 60, 38 52, 50 52 C62 52, 72 60, 72 78" stroke="white" stroke-width="6" fill="none"/>
+          </svg>
+        </div>
+        <span>16px</span>
+      </div>
+      <div class="size-item">
+        <div class="app-icon icon-32 bg-coral" style="display:inline-flex;">
+          <svg viewBox="0 0 100 100" fill="none">
+            <circle cx="50" cy="38" r="12" stroke="white" stroke-width="5" fill="none"/>
+            <path d="M28 78 C28 60, 38 52, 50 52 C62 52, 72 60, 72 78" stroke="white" stroke-width="5" fill="none"/>
+          </svg>
+        </div>
+        <span>32px</span>
+      </div>
+      <div class="size-item">
+        <div class="app-icon icon-64 bg-coral" style="display:inline-flex;">
+          <svg viewBox="0 0 100 100" fill="none">
+            <circle cx="50" cy="38" r="12" stroke="white" stroke-width="4" fill="none"/>
+            <path d="M28 78 C28 60, 38 52, 50 52 C62 52, 72 60, 72 78" stroke="white" stroke-width="4" fill="none"/>
+          </svg>
+        </div>
+        <span>64px</span>
+      </div>
+      <div class="size-item">
+        <div class="app-icon icon-128 bg-coral" style="display:inline-flex;">
+          <svg viewBox="0 0 100 100" fill="none">
+            <circle cx="50" cy="38" r="12" stroke="white" stroke-width="4" fill="none"/>
+            <path d="M28 78 C28 60, 38 52, 50 52 C62 52, 72 60, 72 78" stroke="white" stroke-width="4" fill="none"/>
+            <circle cx="20" cy="25" r="5" fill="white" opacity="0.6"/>
+            <circle cx="80" cy="25" r="5" fill="white" opacity="0.6"/>
+          </svg>
+        </div>
+        <span>128px</span>
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html>
